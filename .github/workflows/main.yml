@@ -1,6 +1,4 @@
-# .github/workflows/deploy-backend.yml
-
-name: Deploy Node Backend to Azure Web App - pallavi-auth0-backend
+name: Deploy Node.js Backend to Azure Web App
 
 on:
   push:
@@ -30,4 +28,4 @@ jobs:
         with:
           app-name: pallavi-auth0-backend
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: backend
+          package: ./backend
