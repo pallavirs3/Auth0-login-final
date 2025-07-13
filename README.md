@@ -16,9 +16,9 @@
 ### 1. ✅ Email verification after sign‑up *(Auth0 out‑of‑the‑box)*
 
 > After a user signs up (POST `/api/signup`), Auth0 auto‑fires an **email‑verification** message to the address they used.
-> ![alt text](assets/veremail.png)
+> <img src="assets/veremail.png" alt="suspected screenshot" width="200"/>
 > The user must click the link in the email to activate their account. Only then can they log
->![alt text](assets/verified.png)
+> <img src="assets/verified.png" alt="suspected screenshot" width="200"/>
 
 
 *What happens next?*
@@ -31,7 +31,8 @@
 Auth0’s built‑in **Attack Protection** notices repeated bad passwords or logins from odd IPs.
 When that triggers, Auth0 emails the account owner with a “Was this you?” alert.
 
-> ![alt text](assets/susemail.png)
+> <img src="assets/susemail.png" alt="suspected screenshot" width="200"/>
+
 ><img src="assets/unblock.png" alt="unblock screenshot" width="200"/>
 
 ### Quick recap of the journey
