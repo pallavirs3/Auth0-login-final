@@ -1,4 +1,4 @@
-name: Deploy Full-Stack App to Azure
+name: Deploy Full Stack to Azure Web App
 
 on:
   push:
@@ -18,22 +18,21 @@ jobs:
         with:
           node-version: '20.x'
 
-      - name: Install backend dependencies
-        run: |
-          cd backend
-          npm install
-
-      - name: Install frontend dependencies & build
+      - name: Install frontend dependencies and build
         run: |
           cd frontend
           npm install
           npm run build
-          cd ..
 
-      - name: Copy frontend build to backend public folder
+      - name: Copy frontend build to backend/public
         run: |
           mkdir -p backend/public
-          cp -r frontend/build/* backend/public/
+          cp -r frontend/dist/* backend/public/
+
+      - name: Install backend dependencies
+        run: |
+          cd backend
+          npm install
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
