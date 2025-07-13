@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import axios from "axios";
 import "dotenv/config.js";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const {
   PORT = 5000,
@@ -14,12 +16,24 @@ const {
   AUTH0_REALM = "usersp",
 } = process.env;
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
+
 app.use(cors({ origin: FRONTEND_URL, credentials: true }));
 app.use(express.json());
 
-app.get("/", (_, res) => res.send("✅ Backend running"));
+// ✅ Serve frontend static files from backend/public
+app.use(express.static(path.join(__dirname, "public")));
 
+// ✅ All routes not starting with /api will return index.html
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// ✅ API: health check
+app.get("/api/health", (_, res) => res.send("✅ Backend running"));
+
+// ✅ API: login
 app.post("/api/login", async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password)
@@ -52,6 +66,7 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
+// ✅ API: signup
 app.post("/api/signup", async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password)
@@ -93,5 +108,5 @@ app.post("/api/signup", async (req, res) => {
 });
 
 app.listen(PORT, () =>
-  console.log(`🔑 Backend running → http://localhost:${PORT}`)
+  console.log(`🚀 Backend running → http://localhost:${PORT}`)
 );
