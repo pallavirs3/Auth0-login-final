@@ -1,0 +1,26 @@
+/* Tailwind layers (leave these at the top) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- Custom global styles for centering ---- */
+html,
+body,
+#root {
+  height: 100%;   /* make the viewport 100 vh for flex centering */
+  margin: 0;      /* remove default browser margins */
+}
+
+/* Center whatever React mounts (LoginCard / SignupCard) */
+#root {
+  display: flex;
+  align-items: center;      /* vertical centering */
+  justify-content: center;  /* horizontal centering */
+  background-color: #121212; /* dark theme backdrop */
+}
+
+/* Optional: tweak default focus ring color (looks cleaner on dark) */
+:focus-visible {
+  outline: 2px solid #4b4b4b;
+  outline-offset: 2px;
+}
