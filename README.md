@@ -1,8 +1,8 @@
-# 🚀 My Zero‑Redirect Auth0 Setup — Personal Cheat‑Sheet
+#  My Zero‑Redirect Auth0 Setup — Personal Cheat‑Sheet
 
 > Hey future‑me (or whoever’s stalking my repo)… this is the **no‑BS, blow‑by‑blow journal** of how I got a fully custom email+password signup / login flow working with Auth0 **without ever touching their Universal Login page**.
 >
-> **Read top‑to‑bottom** when you need to rebuild from scratch. I’ve written *exactly* what I clicked, toggled, pasted, cursed at, and finally celebrated.  ✨🙌
+> **Read top‑to‑bottom** when you need to rebuild from scratch. I’ve written *exactly* what I clicked, toggled, pasted, cursed at, and finally celebrated.  
 
 ---
 
@@ -107,7 +107,7 @@ Login form  → POST /api/login  → backend ⟶ Auth0 /oauth/token (password‑
 2. Leave RS256 → Create.
 3. **Machine‑to‑Machine Applications tab** → authorize our **Custom Backend Auth (M2M)** app → tick any scope (I used `read:messages`).
 
-🤔 *Why this step?* → Auth0 won’t issue an `access_token` for ROPG unless the `audience` matches a registered API **AND** the calling client is authorized.
+ *Why this step?* → Auth0 won’t issue an `access_token` for ROPG unless the `audience` matches a registered API **AND** the calling client is authorized.
 
 ### 4. Hook the DB connection to the app(s)
 
@@ -128,7 +128,7 @@ curl -X PATCH \
 
 ## .env — exact values
 
-Make `backend/.env` look like **this** 👇  (don’t commit the secret!)
+Make `backend/.env` look like **this**   (don’t commit the secret!)
 
 ```env
 PORT=5000
@@ -191,7 +191,7 @@ await axios.post(`https://${AUTH0_DOMAIN}/api/v2/users`, {
 
 ## Things “Past Me” wasted time on
 
-* Copy‑pasting the wrong **client\_id** (I used the SPA one by mistake 🤦‍♀️).
+* Copy‑pasting the wrong **client\_id** (I used the SPA one by mistake ).
 * Forgetting to toggle the DB connection ON for the new M2M app.
 * Deleting the DB connection then wondering why my login broke.
 * Typing the wrong realm in curl tests (`users` vs `usersp`).
@@ -215,6 +215,6 @@ curl -X POST https://$AUTH0_DOMAIN/oauth/token \
 }' | jq
 ```
 
-If that returns a JWT → 🎉 DONE.
+If that returns a JWT →  DONE.
 
 ---
