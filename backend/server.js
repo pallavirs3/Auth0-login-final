@@ -7,7 +7,7 @@ import { fileURLToPath } from "url";
 
 const {
   PORT = 5000,
-  FRONTEND_URL = "http://localhost:5173",
+  FRONTEND_URL = "https://pallavi-auth0-backend-d4hrahhxaccbetb2.centralindia-01.azurewebsites.net/",
   AUTH0_DOMAIN,
   AUTH0_CLIENT_ID,
   AUTH0_CLIENT_SECRET,
