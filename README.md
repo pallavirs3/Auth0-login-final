@@ -32,7 +32,7 @@ Auth0’s built‑in **Attack Protection** notices repeated bad passwords or log
 When that triggers, Auth0 emails the account owner with a “Was this you?” alert.
 
 > ![alt text](assets/susemail.png)
->![alt text](assets/unblock.png)
+><img src="assets/unblock.png" alt="unblock screenshot" width="200"/>
 
 ### Quick recap of the journey
 
